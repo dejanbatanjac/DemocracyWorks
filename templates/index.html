@@ -10,10 +10,11 @@
         <form id="frmSearch" method="POST" action="/results">
         <fieldset>
             <label for="tbCity"> City</label>
-            <input required id="tbCity" type="textbox" name="city" autofocus />
+            <input required id="tbPlace" type="textbox" name="place" autofocus />
             <label for="tbState"> State</label>
+            {% comment %} Need to use us_state.py to populate states {% endcomment %}
             <input required id="tbState" name="state" type="" />
-            <label for="tbSearch"> 5-digit zip code</label>
+            <label for="tbZip"> 5-digit zip code</label>
             <input required id="tbZip" type="textbox" name="zip" maxlength="5"
                 pattern="[0-9]{5}" placeholder="94101" />
             <button class="button">Search</button> 
