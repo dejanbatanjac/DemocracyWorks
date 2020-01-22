@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Democracy Works{% endblock %}
+
+{% block content %}
+    <div id="searchzip">
+        <div id="subhead">
+            <h3>Find voting places by city/state.</h3>
+        </div>
+        <form id="frmSearch" method="POST" action="/results">
+        <fieldset>
+            <label for="tbCity"> City</label>
+            <input required id="tbCity" type="textbox" name="city" autofocus />
+            <label for="tbState"> State</label>
+            <input required id="tbState" name="state" type="" />
+            <label for="tbSearch"> 5-digit zip code</label>
+            <input required id="tbZip" type="textbox" name="zip" maxlength="5"
+                pattern="[0-9]{5}" placeholder="94101" />
+            <button class="button">Search</button> 
+        </fieldset>
+        </form>
+    </div>
+{% endblock %}

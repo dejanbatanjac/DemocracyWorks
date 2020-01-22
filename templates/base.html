@@ -1,0 +1,17 @@
+<html>
+  <head>
+      <title>{% block title %}TITLE GOES HERE{% endblock %}</title>
+      <link rel="stylesheet" href="static/styles.css"/>
+  </head>
+
+<body>
+  <div class="container">
+      <h1 id="logo">Democracy Works </h1>
+
+    <!-- This is where the main content goes. -->
+    {% block content %}
+        BODY OF PAGE GOES HERE
+    {% endblock %}
+  </div>
+</body>
+</html>
