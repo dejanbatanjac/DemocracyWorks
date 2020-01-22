@@ -12,13 +12,15 @@ def index():
     return render_template("index.html")
 
 
-@app.route('/results', methods=['POST','GET'])
+@app.route('/results', methods=['POST', 'GET'])
 def results():
     """get results based on address"""
-    city = request.form["city"]
+    place = request.form["place"]
     state = request.form["state"]
-    url = "https://api.turbovote.org/elections/upcoming?place=" + city + "&state=" + state
-    print(url)
+    # url = "https://api.turbovote.org/elections/upcoming?place=" + place + "&state=" + state
+    #print(url)
+    url = "https://api.turbovote.org/elections/upcoming?district-divisions=ocd-division/country:us/state:ma,ocd-division/country:us/state:ma/place:wayland
+"
     res = requests.get(url)
     res.headers["Content-Type"] = "json"
     print(res.json)
