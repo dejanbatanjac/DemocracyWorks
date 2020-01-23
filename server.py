@@ -16,8 +16,8 @@ def index():
 @app.route('/results', methods=['POST', 'GET'])
 def results():
     """get results based on address"""
-    place = request.form["place"]
-    state = request.form["state"]
+    place = request.form["place"].lower().replace(" ", "_")
+    state = request.form["state"].lower()
 
     url = "https://api.turbovote.org/elections/upcoming?district-divisions=ocd-division/country:us/state:" + state + "/place:" + place
     print(url)
