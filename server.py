@@ -37,7 +37,7 @@ def results():
         print(response)
         return
     except Exception as err:
-        return print("Exception: {0}".format(err))
+        return print(f"Exception: {err}")
         raise
 
 
