@@ -1,7 +1,6 @@
 # Importing flask
 from flask import Flask, request, render_template, redirect
 import requests
-import json
 
 
 app = Flask(__name__)
@@ -40,9 +39,10 @@ def results():
                                     params=querystring)
         # print(response)
         # return print(response.text)
-        results = json.dumps(response.text)
-        loaded_results = json.load(results)
-        return render_template("results.html", items=loaded_results)
+        # results = json.dumps(response.text)
+        # loaded_results = json.load(results)
+        items = response.text
+        return render_template("results.html", items=items)
     except Exception as err:
         return print(f"Exception: {err}")
         raise

@@ -3,13 +3,24 @@
 {% block title %}Democracy Works{% endblock %}
 
 {% block content %}
-    <div id="searchzip">
+    <div id="search">
         <div id="subhead">
             <h3>Your Elections Results</h3>
         </div>
     </div>
-    {% for field in items %}
-        <div id="desc" {{field['description']}}</div>
-        <div id="date" {{field['date']}}</div>
-    {% endfor %}
+    <table>
+        <tr>
+            {% for key in items[0] %}
+            <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+
+        {% for item in items %}
+        <tr>
+            {% for key in item %}
+            <td>{{ item[key] }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
