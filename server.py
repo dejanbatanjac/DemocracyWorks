@@ -34,7 +34,10 @@ def results():
     headers = {"Accept": "application/json", "cache-control": "no-cache"}
 
     try:
-        response = requests.request("GET", url, headers=headers, params=querystring)
+        response = requests.request("GET",
+                                    url,
+                                    headers=headers,
+                                    params=querystring)
         # print(response)
         # return print(response.text)
         results = json.dumps(response.text)
