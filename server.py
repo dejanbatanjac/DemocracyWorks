@@ -35,7 +35,7 @@ def results():
     try:
         response = requests.request("GET", url, headers=headers, params=querystring)
         print(response)
-        return
+        return print(response.text)
     except Exception as err:
         return print(f"Exception: {err}")
         raise
