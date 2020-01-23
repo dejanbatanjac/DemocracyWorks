@@ -22,9 +22,13 @@ def results():
     url = "https://api.turbovote.org/elections/upcoming?district-divisions=ocd-division/country:us/state:" + state + "/place:" + place
     print(url)
     headers = {'content-type': 'json'}
-    res = requests.get(url, headers=headers)
-    print(res.json)
-    return res.json()
+    try:
+        res = requests.get(url, headers=headers)
+        print(res.json)
+        return res.json()
+    except Exception as err:
+        return print("Exception: {0}".format(err))
+        raise
 
 
 if __name__ == "__main__":
