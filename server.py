@@ -19,13 +19,21 @@ def results():
     place = request.form["place"].lower().replace(" ", "_")
     state = request.form["state"].lower()
 
-    url = "https://api.turbovote.org/elections/upcoming?district-divisions=ocd-division/country:us/state:" + state + "/place:" + place
-    print(url)
-    headers = {'content-type': 'json'}
+    # url = "https://api.turbovote.org/elections/upcoming?district-divisions=ocd-division/country:us/state:" + state + ",ocd-division/country:us/state:" + state + "/place:" + place
+    # print(url)
+    url = "https://api.turbovote.org/elections/upcoming"
+    # qrystring = "district-divisions:ocd-division/country:us/state:" + state + ",ocd-division/country:us/state:" + state + "/place:" + place
+    qry = {"district-divisions:" + "ocd-division/country:us/state:" + state + ",ocd-division/country:us/state:" + state + "/place:" + place}
+    print(qry)
+    headers = {
+        'Accept': "application/json",
+        'cache-control': "no-cache"
+    }
+
     try:
-        res = requests.get(url, headers=headers)
-        print(res.json)
-        return res.json()
+        response = requests.request("GET", url, headers=headers, params=qry)
+        print(response)
+        return
     except Exception as err:
         return print("Exception: {0}".format(err))
         raise
