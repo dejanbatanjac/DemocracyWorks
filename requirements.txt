@@ -1,6 +1,10 @@
 Flask
+gunicorn==20.0.4
 Jinja2
 requests
 urllib3
 Werkzeug
-gunicorn
+wheel
+MarkupSafe
+itsdangerous
+
